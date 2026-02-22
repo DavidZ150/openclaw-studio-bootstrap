@@ -10,7 +10,7 @@ OpenClaw Studio Bootstrap helps you quickly set up a cross-device control panel 
 - Model/status controls (planned)
 - Session/tools panel (planned)
 
-It uses a simple architecture:
+Architecture:
 
 `Frontend (Mini App/Web) -> Relay API -> OpenClaw runtime`
 
@@ -18,7 +18,7 @@ It uses a simple architecture:
 
 ## Why this exists
 
-Managing OpenClaw directly on the host machine is powerful but not always convenient.
+Managing OpenClaw directly on the host machine is powerful but not always convenient.  
 This project provides a practical way to control key functions from your phone (Telegram Mini App) and desktop browser.
 
 ---
@@ -31,26 +31,28 @@ This project provides a practical way to control key functions from your phone (
 - ⏳ Stable domain mode (named tunnel + fixed subdomain)
 - ⏳ Model/Status/Sessions modules
 
-See roadmap in docs (coming soon).
-
 ---
 
-## Quick Start (Preview)
-
-> Detailed setup docs will be added.  
-> This is a high-level preview.
-
-1. Run Relay API locally on your OpenClaw host
-2. Expose Relay via Cloudflare Tunnel
-3. Point frontend API URL to tunnel domain
-4. Open frontend from Telegram/web
-
----
-
-## Repository structure (planned)
+## Repository structure
 
 ```text
 frontend/        # Mini App / web UI
 relay/           # API bridge to OpenClaw
 scripts/         # install, doctor, run scripts
 docs/            # setup, security, troubleshooting
+```
+
+---
+
+## Security notes
+
+- Do not expose write APIs without access control
+- Prefer Cloudflare Access for protected endpoints
+- Keep secrets/tokens out of frontend code
+- Enable operation audit logging in Relay
+
+---
+
+## License
+
+MIT
